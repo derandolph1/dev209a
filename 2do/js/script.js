@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000/api'; // Change to your Node API URL
+const API_URL = 'http://localhost:3000/api'; // Node API URL
 let isLoginMode = true;
 
 // --- DOM Elements ---
