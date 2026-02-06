@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Memory Match</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+    <div class="game-container">
+        <h1>Memory Match</h1>
+        
+        <div class="controls">
+            <div class="strong">Controls: </div>
+            <div class="control-group">
+                <label>Level:</label>
+                <select id="difficulty" onchange="resetGame()">
+                    <option value="4">Easy (4x4)</option>
+                    <option value="6">Medium (6x6)</option>
+                    <option value="8">Hard (8x8)</option>
+                </select>
+            </div>
+            <div class="stats">
+                <span>Time: <b id="timer">00:00</b></span>
+                <span>Moves: <b id="move-count">0</b></span>
+            </div>
+            <button onclick="resetGame()">Restart</button>
+                <div class="strong">Customize Style: </div>
+                <div class="control-group">                    
+                    <label>Theme Color:</label>
+                    <input type="color" id="theme-color" value="#4183d4" onchange="updateStyles()">
+                </div>
+                <div class="control-group">
+                    <label>Card Pattern:</label>
+                    <select id="card-pattern" onchange="updateStyles()">
+                    <option value="solid">Solid</option>
+                    <option value="dots">Polka Dots</option>
+                    <option value="stripes">Stripes</option>
+                    </select>
+                </div>
+            
+        </div>
+
+        <div id="game-grid" class="grid"></div>
+        <h2 id="message"></h2>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

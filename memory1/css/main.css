@@ -1,0 +1,100 @@
+:root {
+    --size: 4;
+    --primary-color: #204791; /* This will be updated by JS */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #330666;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.game-container {
+    text-align: center;
+    max-width: 600px;
+}
+
+.controls {
+    background: #48035e;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+/*.customization-panel{
+    padding: 15px;    
+    display: flex;
+    justify-content: space-around;   
+    gap: 10px;
+}*/
+.strong {
+    font-weight: 700;
+}
+.grid {
+    display: grid;
+    gap: 12px;
+    perspective: 1000px;
+    justify-content: center;
+    grid-template-columns: repeat(var(--size), 60px);
+}
+
+.card {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-size: 1.8rem;
+}
+
+.card-back {
+    background: #0f3460;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.card-front {
+    background: var(--primary-color); /* Card Front uses the theme color */
+    transform: rotateY(180deg);
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 500px) {
+    .card { width: 45px; height: 45px; }
+    .grid { grid-template-columns: repeat(var(--size), 45px); }
+}
+
+/* Different Card Back Styles */
+.card-back.solid { background: #0f3460; }
+
+.card-back.dots {
+  background-color: var(--primary-color);
+  background-image: radial-gradient(#f4f6f7 2px, transparent 2px);
+  background-size: 15px 15px;
+}
+.card-back.stripes {
+  background: repeating-linear-gradient(45deg, #4183d4, #0f3460 10px, var(--primary-color) 10px, #16213e 20px);
+}
